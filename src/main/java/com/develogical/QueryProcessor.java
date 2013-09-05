@@ -22,6 +22,10 @@ public class QueryProcessor {
                     "from the seed of the tropical Theobroma cacao tree. Cacao " +
                     "has been cultivated for at least three millennia in " +
                     "Mexico, Central America and Northern South America.";
+        } else if (query.contains("aubergines")) {
+            return "Eggplant (Solanum melongena) is a species of nightshade commonly known in " +
+                    "British English as aubergine and also known as brinjal, brinjal eggplant, " +
+                    "melongene, garden egg, or guinea squash. ";
         }
         return "";
     }
