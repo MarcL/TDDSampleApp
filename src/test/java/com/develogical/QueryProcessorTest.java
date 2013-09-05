@@ -94,4 +94,14 @@ public class QueryProcessorTest {
     public void knowsWhatCorrectPrimeNumbersAre() throws Exception {
         assertThat(queryProcessor.process("698ad0b0:which of the following numbers are primes: 40, 281"), containsString("281"));
     }
+
+    @Test
+    public void knowsWhatCorrectPrimeNumbersAreInListOfFour() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:which of the following numbers are primes: 158, 449, 711, 463"), containsString("449, 463"));
+    }
+
+    @Test
+    public void knowsWhatCorrectPrimeNumbersAreInListOfThree() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:which of the following numbers are primes: 158, 449, 711"), containsString("449"));
+    }
 }

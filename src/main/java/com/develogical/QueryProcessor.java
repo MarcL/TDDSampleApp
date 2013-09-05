@@ -67,17 +67,20 @@ public class QueryProcessor {
             String numbers = queryParts[2];
             String[] numbersParts = numbers.split(",");
 
+            String primes = "";
 
-            int numOne = Integer.parseInt(numbersParts[0].trim());
-            int numTwo = Integer.parseInt(numbersParts[1].trim());
-
-            if (isPrime(numOne)){
-                return String.valueOf(numOne);
-            } else if (isPrime(numTwo)){
-                return String.valueOf(numTwo);
+            for (int i = 0; i< numbersParts.length; i++){
+                int curr = Integer.parseInt(numbersParts[i].trim());
+                if (isPrime(curr)){
+                    primes += curr + ", ";
+                }
             }
 
-            return "";
+            if (!primes.equals("")){
+                primes = primes.substring(0, primes.length() - 2);
+            }
+
+            return primes;
         }
         return "";
     }
