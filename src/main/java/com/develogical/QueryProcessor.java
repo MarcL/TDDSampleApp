@@ -68,7 +68,24 @@ public class QueryProcessor {
 
             return String.valueOf(total);
         } else if (query.contains("what is") && query.contains("multiplied by")) {
-            return "4";
+            String[] queryParts = query.split(":");
+            String mainQuery = queryParts[1];
+
+            Pattern p = Pattern.compile("\\d+");
+            Matcher m = p.matcher(mainQuery);
+
+            String numOne;
+            String numTwo;
+
+            m.find();
+            numOne = m.group();
+
+            m.find();
+            numTwo = m.group();
+
+            int total = Integer.parseInt(numOne) * Integer.parseInt(numTwo);
+
+            return String.valueOf(total);
         }
         return "";
     }
