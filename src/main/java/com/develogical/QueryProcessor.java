@@ -28,8 +28,16 @@ public class QueryProcessor {
                     "melongene, garden egg, or guinea squash. AUBERGINES! AUBERGINES! AUBERGINES!";
         } else if (query.contains("what is your name")) {
             return "Aubergines";
-        } else if (query.contains("which of the following numbers is the largest: 977, 25")) {
-            return "977";
+        } else if (query.contains("which of the following numbers is the largest:")) {
+            String[] queryParts = query.split(":");
+            String numbers = queryParts[1];
+            String[] numbersParts = numbers.split(",");
+            int numOne = Integer.parseInt(numbersParts[0].trim());
+            int numTwo = Integer.parseInt(numbersParts[1].trim());
+            if (numOne > numTwo){
+                return String.valueOf(numOne);
+            }
+            return String.valueOf(numTwo);
         }
         return "";
     }
