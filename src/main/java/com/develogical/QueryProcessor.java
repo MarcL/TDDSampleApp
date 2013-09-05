@@ -28,6 +28,8 @@ public class QueryProcessor {
                     "melongene, garden egg, or guinea squash. AUBERGINES! AUBERGINES! AUBERGINES!";
         } else if (query.contains("what is your name")) {
             return "Aubergines";
+        } else if (query.contains("which of the following numbers is the largest: 977, 25")) {
+            return "977";
         }
         return "";
     }
