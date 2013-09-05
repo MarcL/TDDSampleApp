@@ -19,4 +19,9 @@ public class QueryProcessorTest {
     public void knowsAboutProgramming() throws Exception {
         assertThat(queryProcessor.process("programming"), containsString("computing"));
     }
+
+    @Test
+    public void knowsAboutCakes() throws Exception {
+        assertThat(queryProcessor.process("cakes").toLowerCase(), containsString("battenberg"));
+    }
 }
