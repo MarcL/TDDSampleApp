@@ -119,4 +119,14 @@ public class QueryProcessorTest {
     public void knowsWhatThe22ndNumberInFibonacciSequenceIs() throws Exception {
         assertThat(queryProcessor.process("698ad0b0:what is the 22nd number in the Fibonacci sequence"), containsString("17711"));
     }
+
+    @Test
+    public void knowsWhatNumbersSubtractedAre() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:what is 10 minus 8"), containsString("2"));
+    }
+
+    @Test
+    public void knowsWhatMoreNumbersSubtractedAre() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:what is 20 minus 10"), containsString("10"));
+    }
 }

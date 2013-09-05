@@ -95,6 +95,12 @@ public class QueryProcessor {
             int sequenceNum = Integer.parseInt(m.group());
             return String.valueOf(fib(sequenceNum));
 
+        } else if (query.contains("what is") && query.contains("minus")){
+            int[] numbers = getNumbersFromString(query);
+
+            int total = numbers[0] - numbers[1];
+
+            return String.valueOf(total);
         }
         return "";
     }
