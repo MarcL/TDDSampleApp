@@ -26,6 +26,8 @@ public class QueryProcessor {
             return "Eggplant (Solanum melongena) is a species of nightshade commonly known in " +
                     "British English as aubergine and also known as brinjal, brinjal eggplant, " +
                     "melongene, garden egg, or guinea squash. AUBERGINES! AUBERGINES! AUBERGINES!";
+        } else if (query.contains("what is your name")) {
+            return "Aubergines";
         }
         return "";
     }

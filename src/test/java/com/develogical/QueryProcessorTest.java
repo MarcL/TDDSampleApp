@@ -39,4 +39,9 @@ public class QueryProcessorTest {
     public void knowsAboutAubergines() throws Exception {
         assertThat(queryProcessor.process("aubergines".toLowerCase()), containsString("aubergine"));
     }
+
+    @Test
+    public void knowsWhatNameIs() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:what is your name"), containsString("Aubergines"));
+    }
 }
