@@ -54,4 +54,9 @@ public class QueryProcessorTest {
     public void knowsWhatAnotherLargeNumberIs() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 49, 473"), containsString("473"));
     }
+
+    @Test
+    public void knowsWhichNumberIsLargestForThreeNumbers() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is the largest: 49, 473, 1024"), containsString("1024"));
+    }
 }

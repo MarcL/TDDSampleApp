@@ -32,12 +32,17 @@ public class QueryProcessor {
             String[] queryParts = query.split(":");
             String numbers = queryParts[1];
             String[] numbersParts = numbers.split(",");
-            int numOne = Integer.parseInt(numbersParts[0].trim());
-            int numTwo = Integer.parseInt(numbersParts[1].trim());
-            if (numOne > numTwo){
-                return String.valueOf(numOne);
+            int highest = Integer.parseInt(numbersParts[0].trim());
+
+            for (int i = 0; i< numbersParts.length; i++){
+                int current = Integer.parseInt(numbersParts[i].trim());
+                if (current > highest){
+                    highest = current;
+                }
             }
-            return String.valueOf(numTwo);
+
+
+         return String.valueOf(highest);
         }
         return "";
     }
