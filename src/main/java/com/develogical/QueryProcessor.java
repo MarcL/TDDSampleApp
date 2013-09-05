@@ -1,5 +1,9 @@
 package com.develogical;
 
+import java.util.LinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -43,8 +47,26 @@ public class QueryProcessor {
 
 
             return String.valueOf(highest);
-        } else if (query.contains("what is 10 plus 12")) {
-            return "22";
+        } else if (query.contains("what is") && query.contains("plus")) {
+
+            String[] queryParts = query.split(":");
+            String mainQuery = queryParts[1];
+
+            Pattern p = Pattern.compile("\\d+");
+            Matcher m = p.matcher(mainQuery);
+
+            String numOne;
+            String numTwo;
+
+            m.find();
+            numOne = m.group();
+
+            m.find();
+            numTwo = m.group();
+
+            int total = Integer.parseInt(numOne) + Integer.parseInt(numTwo);
+
+            return String.valueOf(total);
         }
         return "";
     }
