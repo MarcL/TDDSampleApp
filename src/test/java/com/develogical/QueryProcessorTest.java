@@ -104,4 +104,9 @@ public class QueryProcessorTest {
     public void knowsWhatCorrectPrimeNumbersAreInListOfThree() throws Exception {
         assertThat(queryProcessor.process("698ad0b0:which of the following numbers are primes: 158, 449, 711"), containsString("449"));
     }
+
+    @Test
+    public void knowsWhatColourABananaIs() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:what colour is a banana"), containsString("yellow"));
+    }
 }

@@ -81,6 +81,8 @@ public class QueryProcessor {
             }
 
             return primes;
+        } else if (query.contains("what colour is a banana")) {
+            return "yellow";
         }
         return "";
     }
