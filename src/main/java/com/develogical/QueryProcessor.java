@@ -61,8 +61,34 @@ public class QueryProcessor {
             int total = numbers[0] * numbers[1];
 
             return String.valueOf(total);
+        } else if (query.contains("which of the following numbers are primes")) {
+
+            String[] queryParts = query.split(":");
+            String numbers = queryParts[2];
+            String[] numbersParts = numbers.split(",");
+
+
+            int numOne = Integer.parseInt(numbersParts[0].trim());
+            int numTwo = Integer.parseInt(numbersParts[1].trim());
+
+            if (isPrime(numOne)){
+                return String.valueOf(numOne);
+            } else if (isPrime(numTwo)){
+                return String.valueOf(numTwo);
+            }
+
+            return "";
         }
         return "";
+    }
+
+    //checks whether an int is prime or not.
+    private boolean isPrime(int n) {
+        for(int i=2;i<n;i++) {
+            if(n%i==0)
+                return false;
+        }
+        return true;
     }
 
     public int[] getNumbersFromString(String query){

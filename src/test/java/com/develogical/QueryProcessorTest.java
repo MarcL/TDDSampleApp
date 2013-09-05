@@ -84,4 +84,14 @@ public class QueryProcessorTest {
     public void knowsWhatSomeMoreNumbersMultipliesAre() throws Exception {
         assertThat(queryProcessor.process("698ad0b0:what is 2 multiplied by 3"), containsString("6"));
     }
+
+    @Test
+    public void knowsWhatPrimeNumbersAre() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:which of the following numbers are primes: 735, 37"), containsString("37"));
+    }
+
+    @Test
+    public void knowsWhatCorrectPrimeNumbersAre() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:which of the following numbers are primes: 40, 281"), containsString("281"));
+    }
 }
