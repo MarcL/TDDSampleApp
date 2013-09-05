@@ -74,4 +74,9 @@ public class QueryProcessorTest {
     public void knowsWhatSomeMoreNumbersAddedAre() throws Exception {
         assertThat(queryProcessor.process("698ad0b0:what is 20 plus 12"), containsString("32"));
     }
+
+    @Test
+    public void knowsWhatSomeNumbersMultipliesAre() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:what is 2 multiplied by 2"), containsString("4"));
+    }
 }
