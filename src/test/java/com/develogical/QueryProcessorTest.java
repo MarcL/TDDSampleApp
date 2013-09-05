@@ -109,4 +109,14 @@ public class QueryProcessorTest {
     public void knowsWhatColourABananaIs() throws Exception {
         assertThat(queryProcessor.process("698ad0b0:what colour is a banana"), containsString("yellow"));
     }
+
+    @Test
+    public void knowsWhatTheFibonacciSequenceIs() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:what is the 17th number in the Fibonacci sequence"), containsString("1597"));
+    }
+
+    @Test
+    public void knowsWhatThe22ndNumberInFibonacciSequenceIs() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:what is the 22nd number in the Fibonacci sequence"), containsString("17711"));
+    }
 }

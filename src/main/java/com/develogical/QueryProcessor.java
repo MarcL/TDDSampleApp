@@ -83,8 +83,29 @@ public class QueryProcessor {
             return primes;
         } else if (query.contains("what colour is a banana")) {
             return "yellow";
+        } else if (query.contains("what is the") && query.contains("number in the Fibonacci sequence")) {
+
+            String[] queryParts = query.split(":");
+            String mainQuery = queryParts[1];
+
+            Pattern p = Pattern.compile("\\d+");
+            Matcher m = p.matcher(mainQuery);
+
+            m.find();
+            int sequenceNum = Integer.parseInt(m.group());
+            return String.valueOf(fib(sequenceNum));
+
         }
         return "";
+    }
+
+    public int fib(int n){
+        if (n < 2) {
+            return n;
+        }
+        else {
+            return fib(n-1)+fib(n-2);
+        }
     }
 
     //checks whether an int is prime or not.
