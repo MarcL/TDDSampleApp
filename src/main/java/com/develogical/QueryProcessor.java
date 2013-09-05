@@ -30,7 +30,7 @@ public class QueryProcessor {
             return "Aubergines";
         } else if (query.contains("which of the following numbers is the largest:")) {
             String[] queryParts = query.split(":");
-            String numbers = queryParts[1];
+            String numbers = queryParts[2];
             String[] numbersParts = numbers.split(",");
             int highest = Integer.parseInt(numbersParts[0].trim());
 

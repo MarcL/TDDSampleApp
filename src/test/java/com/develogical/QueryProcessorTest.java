@@ -47,16 +47,21 @@ public class QueryProcessorTest {
 
     @Test
     public void knowsWhatLargestNumberIs() throws Exception {
-        assertThat(queryProcessor.process("which of the following numbers is the largest: 977, 25"), containsString("977"));
+        assertThat(queryProcessor.process("698ad0b0:which of the following numbers is the largest: 977, 25"), containsString("977"));
     }
 
     @Test
     public void knowsWhatAnotherLargeNumberIs() throws Exception {
-        assertThat(queryProcessor.process("which of the following numbers is the largest: 49, 473"), containsString("473"));
+        assertThat(queryProcessor.process("698ad0b0:which of the following numbers is the largest: 49, 473"), containsString("473"));
     }
 
     @Test
     public void knowsWhichNumberIsLargestForThreeNumbers() throws Exception {
-        assertThat(queryProcessor.process("which of the following numbers is the largest: 49, 473, 1024"), containsString("1024"));
+        assertThat(queryProcessor.process("698ad0b0:which of the following numbers is the largest: 49, 473, 1024"), containsString("1024"));
+    }
+
+    @Test
+    public void knowsWhatLargestNumberIsWithId() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:which of the following numbers is the largest: 977, 25"), containsString("977"));
     }
 }
