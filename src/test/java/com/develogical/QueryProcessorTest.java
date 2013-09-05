@@ -64,4 +64,9 @@ public class QueryProcessorTest {
     public void knowsWhatLargestNumberIsWithId() throws Exception {
         assertThat(queryProcessor.process("698ad0b0:which of the following numbers is the largest: 977, 25"), containsString("977"));
     }
+
+    @Test
+    public void knowsWhatSomeNumbersAddedAre() throws Exception {
+        assertThat(queryProcessor.process("698ad0b0:what is 10 plus 12"), containsString("22"));
+    }
 }
