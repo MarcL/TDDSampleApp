@@ -49,44 +49,38 @@ public class QueryProcessor {
             return String.valueOf(highest);
         } else if (query.contains("what is") && query.contains("plus")) {
 
-            String[] queryParts = query.split(":");
-            String mainQuery = queryParts[1];
+            int[] numbers = getNumbersFromString(query);
 
-            Pattern p = Pattern.compile("\\d+");
-            Matcher m = p.matcher(mainQuery);
-
-            String numOne;
-            String numTwo;
-
-            m.find();
-            numOne = m.group();
-
-            m.find();
-            numTwo = m.group();
-
-            int total = Integer.parseInt(numOne) + Integer.parseInt(numTwo);
+            int total = numbers[0] + numbers[1];
 
             return String.valueOf(total);
         } else if (query.contains("what is") && query.contains("multiplied by")) {
-            String[] queryParts = query.split(":");
-            String mainQuery = queryParts[1];
 
-            Pattern p = Pattern.compile("\\d+");
-            Matcher m = p.matcher(mainQuery);
+            int[] numbers = getNumbersFromString(query);
 
-            String numOne;
-            String numTwo;
-
-            m.find();
-            numOne = m.group();
-
-            m.find();
-            numTwo = m.group();
-
-            int total = Integer.parseInt(numOne) * Integer.parseInt(numTwo);
+            int total = numbers[0] * numbers[1];
 
             return String.valueOf(total);
         }
         return "";
+    }
+
+    public int[] getNumbersFromString(String query){
+
+        int[] numbers = new int[2];
+
+        String[] queryParts = query.split(":");
+        String mainQuery = queryParts[1];
+
+        Pattern p = Pattern.compile("\\d+");
+        Matcher m = p.matcher(mainQuery);
+
+        m.find();
+        numbers[0] = Integer.parseInt(m.group());
+
+        m.find();
+        numbers[1] = Integer.parseInt(m.group());
+
+        return numbers;
     }
 }
