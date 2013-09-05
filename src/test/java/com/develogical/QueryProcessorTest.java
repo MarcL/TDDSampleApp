@@ -24,4 +24,9 @@ public class QueryProcessorTest {
     public void knowsAboutCakes() throws Exception {
         assertThat(queryProcessor.process("cakes").toLowerCase(), containsString("battenberg"));
     }
+
+    @Test
+    public void knowsAboutCheese() throws Exception {
+        assertThat(queryProcessor.process("cheese").toLowerCase(), containsString("milk"));
+    }
 }
